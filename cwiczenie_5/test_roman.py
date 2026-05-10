@@ -23,3 +23,24 @@ def test_to_roman_parametryzowany(liczba, oczekiwany):
 def test_to_roman_poza_zakresem(n):
     with pytest.raises(ValueError):
         RomanNumeral.to_roman(n)
+
+@pytest.mark.parametrize("zapis, oczekiwany", [
+    ("I", 1),
+    ("IV", 4),
+    ("IX", 9),
+    ("XIV", 14),
+    ("XL", 40),
+    ("MCMXCIX", 1999),
+    ("MMMCMXCIX", 3999),
+])
+def test_from_roman_parametryzowany(zapis, oczekiwany):
+    assert RomanNumeral.from_roman(zapis) == oczekiwany
+
+@pytest.mark.parametrize("n", [1, 4, 9, 14, 40, 399, 1000, 1999, 3999])
+def test_round_trip(n):
+    assert RomanNumeral.from_roman(RomanNumeral.to_roman(n)) == n
+
+@pytest.mark.parametrize("s", ["IIII", "VV", "ABCD", "", "123"])
+def test_from_roman_niepoprawny_format(s):
+    with pytest.raises(ValueError):
+        RomanNumeral.from_roman(s)
