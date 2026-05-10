@@ -4,7 +4,7 @@ Repozytorium zawiera rozwiązania ćwiczeń laboratoryjnych z przedmiotu
 Testowanie Oprogramowania.
 
 ## Technologie
-- Python 3.10+
+- Python 3.9.6
 - pytest
 - pytest-cov
 - pytest-mock
