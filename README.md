@@ -17,8 +17,18 @@ Testowanie Oprogramowania.
 - `cwiczenie_5/` — TDD: klasa liczby rzymskiej
 
 ## Uruchomienie testów
-Wejdź do folderu danego ćwiczenia i uruchom:
+Utwórz i aktywuj środowisko wirtualne:
 ```bash
-pip install pytest pytest-cov pytest-mock
-python -m pytest -v
+python3 -m venv .venv
+source .venv/bin/activate
+pip install pytest pytest-cov pytest-mock requests
+```
+
+Uruchom testy dla wybranego ćwiczenia:
+```bash
+python3 -m pytest cwiczenie_1/test_sum_range.py -v
+python3 -m pytest cwiczenie_2/test_user_repository.py -v
+python3 -m pytest cwiczenie_3/test_file_logger.py cwiczenie_3/test_currency_service.py -v
+python3 -m pytest cwiczenie_4/test_calculator.py -v
+python3 -m pytest cwiczenie_5/test_roman.py -v
 ```
